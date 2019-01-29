@@ -1,0 +1,7 @@
+“The project is called 'CubeMesher' and is attached as the single CubeMesher.zip file. The project is written in C++, using Microsoft Visual Studio 2015 . When you open the project using Microsoft Visual Studio C++, you should be able to compile and link it and run it. After you've done, you can be certain that your environment is ok. It should also be possible to open the project in a newer version of Visual Studio.
+
+Once you succeeded in running this program, the goal is to extend the program with an algorithm to mesh a cube (only nodes and elements, no properties, axis systems or materials). The basic idea is that there is a design that represents a Cube with a certain dimension in x, y and z direction. You have to create a mesh that consists of Shell elements  (only QUADs) on the outer side of the cube. The inside of the cube has to be empty. The number of nodes needed for the mesh is variable in the x, y and z direction. As a tip, please note that the number of nodes to create is equal to (X*Y*Z)-((X-2)*(Y-2)*(Z-2)), where X, Y and Z denote the number of nodes in respect to x, y and z direction. To not have to deal with annoying problems, you can assume that at least three points are created in each direction.
+
+ You only have to fill in the algorithm in the CreateMethod function in CubeMesher.cpp file and you can create additional files as needed. You will find instructions also in the source code files.”
+
+Rezultatul ar trebui sa arate astfel (pentru un cub cu 11 noduri in fiecare directie): see unnamed.png

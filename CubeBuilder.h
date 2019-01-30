@@ -53,7 +53,7 @@ public:
 	void AddNodeIndexToShellFast(int index, int x, int y, int z);
 	void AddIndexToShell(int index, int w, int h);
 
-	int	GetNumberOfShells() const { return _WidthDivs * _HeightDivs; };
+	int	GetNumberOfShells() const { return _Shells.size(); };
 
 private:
 	//get relevant components based on face type. Every face has a component that is constant. Ex: for left face all the nodes will have the component x = 0

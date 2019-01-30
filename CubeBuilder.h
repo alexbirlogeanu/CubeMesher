@@ -117,6 +117,7 @@ private:
 	//TODO Maybe create a struct that encapsulates x, y, z data
 	//this method creates a node that is found in multiples faces
 	void AddEdgeNode(int x, int y, int z);
+	//this method creates a node that is found in one face only
 	void AddInnerFaceNode(int x, int y, int z, FaceType fType);
 
 	void CopyShells();

@@ -7,12 +7,18 @@
     <ClCompile Include="CubeMesher.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="CubeBuilder.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cube.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeBuilder.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

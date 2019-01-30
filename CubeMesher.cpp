@@ -3,9 +3,10 @@
 
 #include <cstdio>
 #include <tchar.h>
+
 #include "Mesh.h"
 #include "Cube.h"
-
+#include "CubeBuilder.h"
 
 // Exercise: fill in the method CreateMesh.
 // This method must mesh a cube. There are a couple rules underlying the meshing:
@@ -26,7 +27,9 @@
 // the nodes and elements are represented in the mesh.
 void CreateMesh(const Cube& iCube, int iNbrNodesX, int iNbrNodesY, int iNbrNodesZ, Mesh& ioMesh)
 {
+	CubeBuilder builder(iCube);
 
+	builder.BuildMesh(ioMesh, iNbrNodesX, iNbrNodesY, iNbrNodesZ);
 }
 
 int _tmain(int argc, _TCHAR* argv[])

@@ -33,12 +33,12 @@ void Mesh::Print()
     std::cout << "Number nodes: " << _Nodes.size() << ", number QUADs: " << _QUADs.size() << std::endl;
 
     const unsigned int maxItems = 100;
-    for (size_t idxNode = 0; idxNode < std::min(maxItems, _Nodes.size()); idxNode++)
+    for (size_t idxNode = 0; idxNode < std::min(maxItems, (unsigned int)_Nodes.size()); idxNode++)
     {
         std::cout << "Node " << idxNode << " = (" << _Nodes[idxNode]._X << ", " << _Nodes[idxNode]._Y << ", " << _Nodes[idxNode]._Z << ")" << std::endl;
     }
 
-    for (size_t idxElem = 0; idxElem < std::min(maxItems, _QUADs.size()); idxElem++)
+    for (size_t idxElem = 0; idxElem < std::min(maxItems, (unsigned int)_QUADs.size()); idxElem++)
     {
         std::cout << "Element " << idxElem << " = (" 
             << _QUADs[idxElem]._Node1 << ", " 

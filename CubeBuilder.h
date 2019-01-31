@@ -48,9 +48,7 @@ public:
 	const std::vector<CubeShell>& GetShells() const { return _Shells; }
 
 	//we do a bunch of checks before adding not to go outside of the grid
-	void AddNodeIndexToShellSafe(int index, int x, int y, int z);
-	//get rid of the checks. we consider that the x, y, z are inside the grid all the time
-	void AddNodeIndexToShellFast(int index, int x, int y, int z);
+	void AddNodeIndexToShell(int index, int x, int y, int z);
 	void AddIndexToShell(int index, int w, int h);
 
 	int	GetNumberOfShells() const { return _Shells.size(); };

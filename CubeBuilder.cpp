@@ -55,25 +55,11 @@ CubeFace::CubeFace(int wDivisions, int hDivisions, FaceType type)
 	_Shells.resize(_WidthDivs * _HeightDivs);
 }
 
-void CubeFace::AddNodeIndexToShellSafe(int index, int x, int y, int z)
-{
-	auto components = GetRelevantComponents(x, y, z);
-	auto addIndex = [&](int w, int h)
-	{
-		if (w >= 0 && w < _WidthDivs && h >= 0 && h < _HeightDivs)
-			AddIndexToShell(index, w, h);
-	};
-
-	addIndex(components.first, components.second); //add to right top shell
-	addIndex(components.first - 1, components.second); //add to left top shell
-	addIndex(components.first, components.second - 1); //add to right bot shell
-	addIndex(components.first - 1, components.second - 1); //add to left bot shell
-}
-
-void  CubeFace::AddNodeIndexToShellFast(int index, int x, int y, int z)
+void  CubeFace::AddNodeIndexToShell(int index, int x, int y, int z)
 {
 	//in this method we dont check if x,y,z are out of bounds
 	auto components = GetRelevantComponents(x, y, z);
+
 	AddIndexToShell(index, components.first, components.second); //add to right top shell
 	AddIndexToShell(index, components.first - 1, components.second); //add to left top shell
 	AddIndexToShell(index, components.first, components.second - 1); //add to right bot shell
@@ -82,8 +68,11 @@ void  CubeFace::AddNodeIndexToShellFast(int index, int x, int y, int z)
 
 void CubeFace::AddIndexToShell(int index, int w, int h)
 {
-	CubeShell& shell = GetShell(w, h);
-	shell.AddNodeIndex(index);
+	if (w >= 0 && w < _WidthDivs && h >= 0 && h < _HeightDivs)
+	{
+		CubeShell& shell = GetShell(w, h);
+		shell.AddNodeIndex(index);
+	}
 }
 
 CubeShell& CubeFace::GetShell(int w, int h) //a face is a 2D structure so we need only 2 components 
@@ -262,7 +251,7 @@ void CubeBuilder::AddEdgeNode(int x, int y, int z)
 	for (unsigned int i = 0; i < faceTypes.size(); ++i)
 	{
 		CubeFace& face = _Faces[underlying_cast(faceTypes[i])];
-		face.AddNodeIndexToShellSafe(_CurrentIndex, x, y, z);
+		face.AddNodeIndexToShell(_CurrentIndex, x, y, z);
 	}
 
 	++_CurrentIndex;
@@ -274,7 +263,7 @@ void CubeBuilder::AddInnerFaceNode(int x, int y, int z, FaceType fType)
 	mesh->SetNode(_CurrentIndex, x * _XStride, y * _YStride, z * _ZStride);
 
 	CubeFace& face = _Faces[underlying_cast(fType)];
-	face.AddNodeIndexToShellFast(_CurrentIndex, x, y, z);
+	face.AddNodeIndexToShell(_CurrentIndex, x, y, z);
 	++_CurrentIndex;
 }
 

@@ -41,7 +41,7 @@ int _tmain(int argc, _TCHAR* argv[])
     Mesh lMesh; 
 
     // Create the mesh
-    CreateMesh(lCube, 4, 3, 3, lMesh);
+    CreateMesh(lCube, 4, 4, 4, lMesh);
 
     // Print the Mesh
     // The output of the Print method will be limited to 100 elements and 100 nodes, because

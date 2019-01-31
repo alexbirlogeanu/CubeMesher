@@ -8,9 +8,9 @@
 #include "Mesh.h"
 
 #define START_PROFILLING(section) { \
-						ULONGLONG startTime = GetTickCount64();
+						DWORD startTime = GetTickCount();
 
-#define END_PROFILLING(section) ULONGLONG endTime = GetTickCount64(); \
+#define END_PROFILLING(section) DWORD endTime = GetTickCount(); \
 						ULONGLONG elapsedTime = endTime - startTime; \
 						std::cout << "Elapsed time for section: " << #section << " is " << elapsedTime / 1000 << " sec and " <<  elapsedTime % 1000 << " ms" << std::endl; \
 					}

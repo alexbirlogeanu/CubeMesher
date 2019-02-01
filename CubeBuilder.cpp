@@ -57,7 +57,6 @@ CubeFace::CubeFace(int wDivisions, int hDivisions, FaceType type)
 
 void  CubeFace::AddNodeIndexToShell(int index, int x, int y, int z)
 {
-	//in this method we dont check if x,y,z are out of bounds
 	auto components = GetRelevantComponents(x, y, z);
 
 	AddIndexToShell(index, components.first, components.second); //add to right top shell
@@ -139,6 +138,7 @@ void CubeBuilder::BuildMesh(Mesh& outMesh, int xNodes, int yNodes, int zNodes)
 
 	//clear data
 	_Faces.clear();
+	_BuildData = { nullptr, 0, 0, 0 };
 	END_PROFILLING("CreateMesh");
 }
 
@@ -285,7 +285,6 @@ void CubeBuilder::CopyShells()
 		{
 			const auto& indexes = shell.GetIndexes();
 			assert(indexes.size() == 4);
-			//indexes are kinda chaotic. i should change put them in an order (CCW or CC)
 			mesh->SetQUAD(quadIndex++, indexes[0], indexes[1], indexes[2], indexes[3]);
 		}
 	}

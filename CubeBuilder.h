@@ -93,7 +93,8 @@ private:
 	void CreateEdgeNodes();
 	void CreateInnerFaceNodes();
 
-	/*a node is indentify by the divisions of the XYZ axes, with x E [0, xDivisions - 1], y E [0, yDivisions - 1], etc
+	/*
+	a node is indentify by the divisions of the XYZ axes, with x E [0, xDivisions - 1], y E [0, yDivisions - 1], etc
 	the nodes are "numbered" in this order:
 	
 				(0, y, z)			(x, y, z)
